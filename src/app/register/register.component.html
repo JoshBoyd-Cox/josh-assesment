@@ -1,0 +1,22 @@
+<h1>Register:</h1>
+<form (ngSubmit)="registerUser()" #registerForm="ngForm">
+  <p>Email:</p>
+  <input 
+    [(ngModel)]="email"
+    name="email"
+    type="text"
+    id="email"
+    required
+  >
+  <br>
+  <p>Password:</p>
+  <input
+    [(ngModel)]="password"
+    name="password"
+    type="password"
+    id="password"
+    required
+  >
+  <button type="submit" class="btn btn-success">submit</button>
+</form>
+<a href="/login">Return to log in</a>

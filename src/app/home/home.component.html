@@ -1,0 +1,83 @@
+<h1>Hi there {{user.email}}</h1>
+<h1>Hi there {{user.uid}}</h1>
+
+<!-- form goes here -->
+<form (ngSubmit)="createNewSession()" id="newSessionForm">
+  Who was the present from?:
+  <input 
+    [(ngModel)]="whoFrom"
+    name="whoFrom"
+    type="text"
+    id="whoFrom"
+    required
+  >
+  
+  Date opened:
+  <input
+    [(ngModel)]="date"
+    name="date"
+    type="text"
+    id="date"
+    required
+  >
+
+  Present:
+  <input
+    [(ngModel)]="present"
+    name="present"
+    type="text"
+    id="present"
+    required
+  >
+
+  Who was it to?:
+  <input
+    [(ngModel)]="whoTo"
+    name="whoTo"
+    type="text"
+    id="whoTo"
+    required
+  >
+
+  Rating out of 5:
+  <input
+    [(ngModel)]="rating"
+    name="rating"
+    type="number"
+    id="rating"
+    required
+  >
+
+  Picture:
+  <input
+    [(ngModel)]="picture"
+    name="picture"
+    type="image"
+    id="picture"
+    required
+  >
+
+  Thank you letter sent?
+  <input type="checkbox"
+  [(ngModel)]="checkbox"
+  name="checkbox"
+  type="checkbox"
+  id="checkbox"
+  required
+  >
+
+  <button type="submit">submit</button>
+</form>
+
+
+<p>Your data is:</p>
+
+<ul>
+  <li class="text" *ngFor="let item of items | async">
+    {{item.name}}
+    {{item.date}}
+  </li>
+</ul>
+
+<br>
+<button (click)="logOut()" id="logout" class="btn btn-danger">logout</button>
