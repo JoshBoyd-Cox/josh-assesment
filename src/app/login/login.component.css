@@ -1,0 +1,17 @@
+.logIn{
+    text-align: center;
+    background:  rgb(108,1,11,);
+}
+
+.logIn input, p {
+    padding: 5px;
+    margin-top: 5px;
+}
+
+input{
+    border-radius: 5px;
+}
+
+button {
+    margin-left: 15px;
+}

@@ -1,3 +1,45 @@
-li{
-    background-color: white;
+* {
+    padding-left: 5px;
+}
+
+.jumbotron {
+    text-align: center;
+    background-image: url(src\assets\red2.jpg);
+    color: white;
+}
+
+.presentsList{
+    background-color: rgb(108,1,11);
+    margin-top: 50px;
+    text-align: left;
+    margin: 10px 75px;
+    padding-top: 5px;
+    
+}
+
+.presentsList button {
+    margin-bottom: 25px;
+    padding: 5px;
+}
+
+.giftList {
+    background-color: rgba(0,0,0,0.2);
+    margin-top: 50px;
+    text-align: center;
+    padding: 75px;
+}
+
+.giftList h2 {
+    background-color:  rgb(108,1,11);;
+    /* margin: 0 50px; */
+}
+
+/* li{
+    
+    margin: 0 55px;
+} */
+
+input {
+    margin-left: 5px;
+    border-radius: 5px;
 }
