@@ -5,6 +5,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import {RouterModule, Routes, Route} from '@angular/router';
 import {FormsModule} from '@angular/forms';
+import {AuthGuard} from './services/auth-guard.service';
 
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
@@ -14,7 +15,7 @@ import { HomeComponent } from './home/home.component';
 
 
 const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: '', component: HomeComponent, canActivate:[AuthGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent}
 ];
@@ -38,7 +39,7 @@ const appRoutes: Routes = [
       }
     ),
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

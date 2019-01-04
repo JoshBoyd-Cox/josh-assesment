@@ -19,12 +19,20 @@ export class HomeComponent implements OnInit {
   whoTo: string;
   rating: number;
 
+  presents: Observable<any[]>;
+
   constructor(db: AngularFirestore, public authService: AuthServiceService, public router: Router,
     public sessionsService: SessionsServiceService) {
-    this.sessions = this.sessionsService.sessionCollection.valueChanges();
+    // this.sessions = this.sessionsService.sessionCollection.valueChanges();
     // this.sessions = db.collection('sessions').valueChanges(); //This needs to come from the lessons service.
     this.user = this.authService.user;
+    this.presents = this.sessionsService.presents;
   }
+
+
+
+
+
 
   ngOnInit() {
   }
@@ -42,8 +50,8 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  createNewLesson() {
-    this.sessionsService.add(this.whoFrom, this.date, this.present, this.whoTo, this.rating);
+  createNewPresent() {
+    this.sessionsService.add(this.whoFrom, this.date, this.present, this.whoTo, this.rating, false);
     this.whoFrom = '';
     this.date = '';
     this.present = '';
@@ -51,8 +59,13 @@ export class HomeComponent implements OnInit {
     this.rating = -1;
   }
 
-  update() {
-    this.sessionsService.update();
+  sendLetter(present) {
+    this.sessionsService.update(present);
+
+  }
+
+  delete(id) {
+    this.sessionsService.deleteItem(id);
   }
 }
 

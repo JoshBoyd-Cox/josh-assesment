@@ -2,7 +2,7 @@
 <h1>Hi there {{user.uid}}</h1>
 
 <!-- form goes here -->
-<form (ngSubmit)="createNewSession()" id="newSessionForm">
+<form (ngSubmit)="createNewPresent()" id="newSessionForm">
   Who was the present from?:
   <input 
     [(ngModel)]="whoFrom"
@@ -73,9 +73,13 @@
 <p>Your data is:</p>
 
 <ul>
-  <li class="text" *ngFor="let item of items | async">
-    {{item.name}}
-    {{item.date}}
+  <li class="text" *ngFor="let present of presents | async">
+    {{present.whoFrom}}
+    {{present.date}}
+    {{present.id}}
+    {{present.checkbox}}
+    <button (click)="sendLetter(present)" id="sendLetter" class="btn btn-primary">Send a thank you!</button>
+    <button (click)="delete(present.id)" id="delete" class="btn btn-danger">Delete</button>
   </li>
 </ul>
 
