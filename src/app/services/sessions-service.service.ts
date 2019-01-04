@@ -11,6 +11,7 @@ export interface IPresent {
   rating: number;
   checkbox: boolean;
   uid: string;
+  userID: string;
   }
 
 @Injectable({
@@ -22,8 +23,8 @@ export class SessionsServiceService {
   presents;
 
   constructor(public db: AngularFirestore, public authService: AuthServiceService) {
-    this.sessionCollection = db.collection('presents', (ref) => {
-      return ref.where('uid', '==', this.authService.user.uid);
+        this.sessionCollection = db.collection('presents', (ref) => {
+      return ref.where('userID', '==', this.authService.user.uid);
     });
     this.presents = this.sessionCollection.snapshotChanges().pipe(
       map(actions => actions.map(
@@ -47,7 +48,8 @@ export class SessionsServiceService {
       whoTo: whoToPassedIn,
       rating: ratingPassedIn,
       checkbox: checkboxPassedIn,
-      uid: this.authService.user.uid
+      uid: this.authService.user.uid,
+      userID: this.authService.user.uid
     };
     this.sessionCollection.add(present);
   }
